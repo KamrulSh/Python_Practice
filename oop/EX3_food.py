@@ -1,4 +1,4 @@
-'''
+"""
 𝗤𝘂𝗲𝘀𝘁𝗶𝗼𝗻:
 Design Vegetable class and Fruit class which inherit from Food class so 
 that the following code provides the expected output.
@@ -57,7 +57,7 @@ Price: 90 BDT per kg
 Fruit Details:
 Red : ['small-9kg', 'Large-9kg']
 Green : ['small-5kg']
-'''
+"""
 
 
 class Food:
@@ -71,7 +71,6 @@ class Food:
 
 
 class Vegetable(Food):
-
     def __init__(self, name, rich_in, price):
         super().__init__(name, rich_in)
         self.price = price
@@ -101,12 +100,11 @@ class Vegetable(Food):
         f = ""
         for key, val in self.color.items():
             f += "\n" + str(key) + " : " + str(val)
-        all = s+p + f
+        all = s + p + f
         return all
 
 
 class Fruit(Food):
-
     def __init__(self, name, rich_in, price):
         super().__init__(name, rich_in)
         self.price = price
@@ -136,23 +134,29 @@ class Fruit(Food):
         f = ""
         for key, val in self.color.items():
             f += "\n" + str(key) + " : " + str(val)
-        all = s+p + f
+        all = s + p + f
         return all
 
 
 # Do not change the following lines of code.
 g1 = Vegetable("Tomato", "folate, vitamin C, and potassium", 60)
-g1.add_Vegetables("Red large Tomato - 5kg", "Green small tomato - 2kg",
-                  "red Medium Tomato - 3kg", "green Large tomato - 2kg", "Yellow Medium Tomato - 1kg")
-print('====================================')
+g1.add_Vegetables(
+    "Red large Tomato - 5kg",
+    "Green small tomato - 2kg",
+    "red Medium Tomato - 3kg",
+    "green Large tomato - 2kg",
+    "Yellow Medium Tomato - 1kg",
+)
+print("====================================")
 g1.show_Cost()
-print('====================================')
+print("====================================")
 print(g1)
-print('====================================')
+print("====================================")
 g2 = Fruit("Apple", "fiber, vitamin C, and various antioxidants", 90)
-g2.add_Fruits("Red small Apple - 9kg",
-              "Green small Apple - 5kg", "red Large Apple - 9kg")
-print('====================================')
+g2.add_Fruits(
+    "Red small Apple - 9kg", "Green small Apple - 5kg", "red Large Apple - 9kg"
+)
+print("====================================")
 g2.show_Cost()
-print('====================================')
+print("====================================")
 print(g2)

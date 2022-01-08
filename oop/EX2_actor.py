@@ -1,4 +1,4 @@
-'''
+"""
 𝗤𝘂𝗲𝘀𝘁𝗶𝗼𝗻:
 Design TomCruise class and DulquerSalman class which inherit from Actor 
 class so that the following code provides the expected output.
@@ -17,22 +17,19 @@ class Actor:
      pass
 
    def __str__(self):
-     s = f"Name: {self.name}\nRating: {self.rating}\nIndustry: 
-{self.industry}"
+     s = f"Name: {self.name}\nRating: {self.rating}\nIndustry: {self.industry}"
      return s
 
 # Write your codes here.
 tom_cruise = TomCruise("Tom Cruise", 9.5, "Hollywood", 0)
-tom_cruise.add_movie("Knight & Day", "Action", "Top Gun", "Action", "Jerry 
-Maguire", "Romance", "Jack Reacher", "Thriller", "The Firm", "Thriller")
+tom_cruise.add_movie("Knight & Day", "Action", "Top Gun", "Action", "Jerry Maguire", "Romance", "Jack Reacher", "Thriller", "The Firm", "Thriller")
 print('1.------------------------------------')
 print(tom_cruise.oscar_status())
 print('2.------------------------------------')
 print(tom_cruise)
 print('3.====================================')
 dulquer_salman = DulquerSalman("Dulquer Salman", 9, "Malayalam", 5)
-dulquer_salman.add_movie("Thriller", "Bangalore Days", "Romance", "Ustad 
-Hotel", "Thriller", "Charlie", "Action", "Kurup", "Action", "Vikramadithyan")
+dulquer_salman.add_movie("Thriller", "Bangalore Days", "Romance", "Ustad Hotel", "Thriller", "Charlie", "Action", "Kurup", "Action", "Vikramadithyan")
 print('4.------------------------------------')
 print(dulquer_salman.award_status())
 print('5.------------------------------------')
@@ -64,7 +61,7 @@ Movies:
 Thriller: ['Bangalore Days', 'Charlie']
 Romance: ['Ustad Hotel']
 Action: ['Kurup', 'Vikramadithyan']
-'''
+"""
 
 
 class Actor:
@@ -102,18 +99,18 @@ class TomCruise(Actor):
         for i in range(1, len(info), 2):
             if info[i] not in self.movies:
                 self.movies[info[i]] = []
-            self.movies[info[i]].append(info[i-1])
+            self.movies[info[i]].append(info[i - 1])
 
     def oscar_status(self):
         return f"{self.name} has won {self.oscar} Oscar(s)!!!"
 
     def __str__(self):
-        thriller = self.movies['Thriller']
-        action = self.movies['Action']
-        romance = self.movies['Romance']
+        thriller = self.movies["Thriller"]
+        action = self.movies["Action"]
+        romance = self.movies["Romance"]
         s = f"Name: {self.name}\nRating: {self.rating}\nIndustry: {self.industry}\nAwards: {self.oscar}"
         m = f"\nMovies: \nThriller: {thriller}\nAction: {action}\nRomantic: {romance}"
-        a = s+m
+        a = s + m
         return a
 
 
@@ -141,33 +138,53 @@ class DulquerSalman(Actor):
         for i in range(0, len(info), 2):
             if info[i] not in self.movies:
                 self.movies[info[i]] = []
-            self.movies[info[i]].append(info[i+1])
+            self.movies[info[i]].append(info[i + 1])
 
     def award_status(self):
         return f"{self.name} has won {self.award} Awards(s)!!!"
 
     def __str__(self):
-        thriller = self.movies['Thriller']
-        action = self.movies['Action']
-        romance = self.movies['Romance']
+        thriller = self.movies["Thriller"]
+        action = self.movies["Action"]
+        romance = self.movies["Romance"]
         s = f"Name: {self.name}\nRating: {self.rating}\nIndustry: {self.industry}\nAwards: {self.award}"
         m = f"\nMovies: \nThriller: {thriller}\nAction: {action}\nRomantic: {romance}"
-        a = s+m
+        a = s + m
         return a
 
 
 tom_cruise = TomCruise("Tom Cruise", 9.5, "Hollywood", 0)
-tom_cruise.add_movie("Knight & Day", "Action", "Top Gun", "Action", "Jerry Maguire",
-                     "Romance", "Jack Reacher", "Thriller", "The Firm", "Thriller")
-print('1.------------------------------------')
+tom_cruise.add_movie(
+    "Knight & Day",
+    "Action",
+    "Top Gun",
+    "Action",
+    "Jerry Maguire",
+    "Romance",
+    "Jack Reacher",
+    "Thriller",
+    "The Firm",
+    "Thriller",
+)
+print("1.------------------------------------")
 print(tom_cruise.oscar_status())
-print('2.------------------------------------')
+print("2.------------------------------------")
 print(tom_cruise)
-print('3.====================================')
+print("3.====================================")
 dulquer_salman = DulquerSalman("Dulquer Salman", 9, "Malayalam", 5)
-dulquer_salman.add_movie("Thriller", "Bangalore Days", "Romance", "Ustad Hotel",
-                         "Thriller", "Charlie", "Action", "Kurup", "Action", "Vikramadithyan")
-print('4.------------------------------------')
+dulquer_salman.add_movie(
+    "Thriller",
+    "Bangalore Days",
+    "Romance",
+    "Ustad Hotel",
+    "Thriller",
+    "Charlie",
+    "Action",
+    "Kurup",
+    "Action",
+    "Vikramadithyan",
+)
+print("4.------------------------------------")
 print(dulquer_salman.award_status())
-print('5.------------------------------------')
+print("5.------------------------------------")
 print(dulquer_salman)

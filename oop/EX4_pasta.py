@@ -1,4 +1,4 @@
-'''
+"""
 𝗤𝘂𝗲𝘀𝘁𝗶𝗼𝗻:
 Implement the design of the Pasta class so that the following output is 
 produced:
@@ -44,7 +44,7 @@ Protein: 20 g
 Carbohydrate: 10 g
 =======================
 Pasta Plate Count: 3
-'''
+"""
 
 
 class Pasta:

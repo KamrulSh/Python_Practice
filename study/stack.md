@@ -1,4 +1,6 @@
-# Stack Data Structure
+#### Author: [Kamrul Islam Shahin 🇧🇩](https://www.linkedin.com/in/mdkamrulshahin/https:/)
+
+# 🚀️ Stack Data Structure (30 days study plan)
 
 - Linear data structure
 - Follows the principle of **Last In First Out (LIFO)**
@@ -6,7 +8,7 @@
 
 ![represent the LIFO principle by using push and pop operation](https://cdn.programiz.com/sites/tutorial2program/files/stack.png)
 
-## Stack operations:
+## 🚀️ Stack operations:
 
 - **push**: Pushes an item at the top of the stack.
 - **pop**: Remove and return the item from the top of the stack.
@@ -15,7 +17,7 @@
 - **isEmpty**: Checks whether the stack is empty.
 - **isFull**: Checks whether the stack is full.
 
-## Implementing Stack using Arrays
+## 🚀️ Implementing Stack using Arrays
 
 ### \* Method 1
 
@@ -29,9 +31,7 @@ stack.append('b')
 print('Initial stack:')
 print(stack)
 
-# pop() fucntion to pop
-# element from stack in
-# LIFO order
+# pop() fucntion to pop element from stack in LIFO order
 print('Elements poped from stack:')
 print(stack.pop())
 print(stack.pop())
@@ -219,10 +219,87 @@ push: Stack overflow
 peek: 5
 ```
 
-## Referances
+## 🚀️ Implementing Stack using deque
+
+```python
+from collections import deque
+stack = deque()
+
+# append() function to push element in the stack
+stack.append(1)
+stack.append(2)
+stack.append(3)
+print(stack)
+# pop() fucntion to pop element from stack in LIFO order
+print("pop:", stack.pop())
+# appendleft() function to push element in the left side of the stack
+stack.appendleft(11)
+print(stack)
+stack.append(12)
+print(stack)
+print("popleft:", stack.popleft())
+print(stack)
+print("peek:", stack[-1])
+print("pop:", stack.pop())
+print(stack)
+print("popleft:", stack.popleft())
+print(stack)
+```
+
+Output:
+
+```
+deque([1, 2, 3])
+pop: 3
+deque([11, 1, 2])
+deque([11, 1, 2, 12])
+popleft: 11
+deque([1, 2, 12])
+peek: 12
+pop: 12
+deque([1, 2])
+popleft: 1
+deque([2])
+```
+
+## 🚀️ Implementing Stack using LifoQueue
+
+```python
+from queue import LifoQueue
+
+stack = LifoQueue(maxsize=3)
+# qsize() show the number of elements in the stack
+print("Size:",stack.qsize())
+# put() function to push element in the stack
+stack.put(1)
+print("Full:", stack.full())
+stack.put(2)
+stack.put(3)
+print("Full:", stack.full())
+print("Size:", stack.qsize())
+# get() fucntion to pop element from stack in LIFO order
+print("pop:",stack.get())
+print("pop:",stack.get())
+print("pop:",stack.get())
+print("Empty:", stack.empty())
+```
+
+Output:
+
+```
+Size: 0
+Full: False
+Full: True
+Size: 3
+pop: 3
+pop: 2
+pop: 1
+Empty: True
+```
+
+## 🚀️ Referances
 
 [1. Geeksforgeeks](https://www.geeksforgeeks.org/stack-data-structure-introduction-program/)
-
 [2. Techiedelight](https://www.techiedelight.com/stack-implementation-python/)
-
 [3. Programiz](https://www.programiz.com/dsa/stack)
+[4. RealPython](https://realpython.com/how-to-implement-python-stack/)

@@ -74,11 +74,8 @@ class Stack:
 
     # Use list append method to push element
     def push(self, val):
-        if val not in self.stack:
-            self.stack.append(val)
-            return True
-        else:
-            return False
+        self.stack.append(val)
+        return val
 
     # Stack is empty when stack size is 0
     def isEmpty(self):
@@ -101,19 +98,125 @@ class Stack:
     def print(self):
         return self.stack
 
+
 stack = Stack()
-stack.push(1)
-stack.push(2)
+print("push:", stack.push(1))
+print("push:", stack.push(2))
 print(stack.print())
 print("pop:", stack.pop())
 print("pop:", stack.pop())
 print("pop:", stack.pop())
 print(stack.print())
 print("peek:", stack.peek())
-stack.push(3)
-stack.push(4)
+print("push:", stack.push(3))
+print("push:", stack.push(4))
 print(stack.print())
 print("peek:", stack.peek())
+```
+
+Output:
+
+```
+push: 1
+push: 2
+[1, 2]
+pop: 2
+pop: 1
+pop: No element in the Stack
+[]
+peek: No element in the Stack
+push: 3
+push: 4
+[3, 4]
+peek: 4
+```
+
+### \* Method 3 (Implementing all operations)
+
+```python
+class Stack:
+    def __init__(self, size):
+        self.stack = [None] * size
+        self.size = size
+        self.top = -1
+
+    # Use list append method to push element
+    def push(self, val):
+        if self.isFull():
+            return ("Stack overflow")
+        else:
+            self.top += 1
+            self.stack[self.top] = val
+            return val
+
+    # Stack is full when self.size is equal to top + 1
+    def isFull(self):
+        return self.size == self.top + 1
+
+    # Stack is empty when top is -1
+    def isEmpty(self):
+        return self.top == -1
+        # OR return self.size() == 0
+
+    # Use list pop method to remove element and set as None
+    def pop(self):
+        if self.isEmpty():
+            return ("Stack underflow")
+        else:
+            topVal = self.stack[self.top]
+            self.stack[self.top] = None
+            self.top -= 1
+            return topVal
+
+    # Use peek to look at the top of the stack
+    def peek(self):
+        if self.isEmpty():
+            return ("Stack empty")
+        else:
+            return self.stack[self.top]
+
+    # Stack size
+    def size(self):
+        return self.top + 1
+
+    def print(self):
+        return self.stack
+
+
+stack = Stack(3)
+print("push:", stack.push(1))
+print("push:", stack.push(2))
+print(stack.print())
+print("pop:", stack.pop())
+print("pop:", stack.pop())
+print(stack.print())
+print("pop:", stack.pop())
+print("peek:", stack.peek())
+print("push:", stack.push(3))
+print("push:", stack.push(4))
+print("push:", stack.push(5))
+print("push:", stack.push(6))
+print(stack.print())
+print("peek:", stack.peek())
+```
+
+Output:
+
+```
+push: 1
+push: 2
+[1, 2, None]
+pop: 2
+pop: 1
+[None, None, None]
+pop: Stack underflow
+peek: Stack empty
+push: 3
+push: 4
+push: 5
+push: Stack overflow
+[3, 4, 5]
+peek: 5
 ```
 
 ## Referances

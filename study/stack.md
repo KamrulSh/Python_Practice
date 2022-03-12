@@ -1,4 +1,4 @@
-#### Author: [Kamrul Islam Shahin 🇧🇩](https://www.linkedin.com/in/mdkamrulshahin/https:/)
+### Author: [Kamrul Islam Shahin 🇧🇩](https://www.linkedin.com/in/mdkamrulshahin/)
 
 # 🚀️ Stack Data Structure (30 days study plan)
 
@@ -296,6 +296,10 @@ pop: 2
 pop: 1
 Empty: True
 ```
+
+#### Notes
+
+- Both deque and LifoQueue implementation gives an error while popping element and finding the peek element from the stack if the stack is empty.
 
 ## 🚀️ Referances
 

@@ -299,7 +299,8 @@ Empty: True
 
 ## 🚀️ Referances
 
-[1. Geeksforgeeks](https://www.geeksforgeeks.org/stack-data-structure-introduction-program/)
-[2. Techiedelight](https://www.techiedelight.com/stack-implementation-python/)
-[3. Programiz](https://www.programiz.com/dsa/stack)
-[4. RealPython](https://realpython.com/how-to-implement-python-stack/)
+1. [Geeksforgeeks](https://www.geeksforgeeks.org/stack-data-structure-introduction-program/)
+2. [Techiedelight](https://www.techiedelight.com/stack-implementation-python/)
+3. [Programiz](https://www.programiz.com/dsa/stack)
+4. [RealPython](https://realpython.com/how-to-implement-python-stack/)
+5. [GFG](https://www.geeksforgeeks.org/python-queue-lifoqueue-vs-collections-deque/https:/)

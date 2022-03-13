@@ -1,6 +1,6 @@
 ### Author: [Kamrul Islam Shahin 🇧🇩](https://www.linkedin.com/in/mdkamrulshahin/)
 
-# 🚀️ Stack Data Structure (30 days study plan)
+# 🚀️ Stack Data Structure (15 days study plan)
 
 - Linear data structure
 - Follows the principle of **Last In First Out (LIFO)**
@@ -394,6 +394,13 @@ Pop: 1 | None
 Pop: Empty stack | None
 Peek: Empty stack
 ```
+
+## 🚀️ Solve problems
+
+1. [Problems from InterviewBit](https://www.interviewbit.com/courses/programming/topics/stacks-and-queues)
+2. [Problems from leetcode](https://leetcode.com/tag/stack)
+3. [Problems from hackerrank](https://www.hackerrank.com/domains/data-structures?filters%5Bsubdomains%5D%5B%5D=stacks)
+4. [Problems from hackerrank (Interview)](https://www.hackerrank.com/interview/interview-preparation-kit/stacks-queues/challenges)
 
 ## 🚀️ Referances
 

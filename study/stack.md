@@ -301,6 +301,100 @@ Empty: True
 
 - Both deque and LifoQueue implementation gives an error while popping element and finding the peek element from the stack if the stack is empty.
 
+## 🚀️ Implementing Stack using LinkedList
+
+![Stack_ll](assets/Stack_ll.jpg)
+
+```py
+# node class
+class StackNode:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+
+class Stack:
+    def __init__(self):
+        self.head = None
+        self.size = 0
+
+    # String representation of the stack
+    def __str__(self):
+        cur = self.head
+        out = ""
+        while cur:
+            out += str(cur.value) + "->"
+            cur = cur.next
+        out += "None"
+        return out
+
+    # Get the current size of the stack
+    def getSize(self):
+        return self.size
+
+    # Check if the stack is empty
+    def isEmpty(self):
+        return self.size == 0
+
+    # Get the top item of the stack
+    def peek(self):
+        if self.head is None:
+            return "Empty stack"
+        else:
+            return self.head.value
+
+    # Push a value into the stack.
+    def push(self, value):
+        if self.head is None:
+            self.head = StackNode(value)
+            self.size += 1
+        else:
+            node = StackNode(value)
+            node.next = self.head
+            self.head = node
+            self.size += 1
+
+    # Remove a value from the stack and return.
+    def pop(self):
+        if self.head:
+            remove = self.head
+            self.head = self.head.next
+            self.size -= 1
+            return remove.value
+        else:
+            return "Empty stack"
+
+
+# Driver Code
+if __name__ == "__main__":
+    stack = Stack()
+    for i in range(1, 5):
+        stack.push(i)
+        print(f"Push: {i} | {stack}")
+    print("Peek:", stack.peek())
+    for _ in range(1, 6):
+        remove = stack.pop()
+        print(f"Pop: {remove} | {stack}")
+    print("Peek:", stack.peek())
+
+```
+
+Output:
+
+```
+Push: 1 | 1->None
+Push: 2 | 2->1->None
+Push: 3 | 3->2->1->None
+Push: 4 | 4->3->2->1->None
+Peek: 4
+Pop: 4 | 3->2->1->None
+Pop: 3 | 2->1->None
+Pop: 2 | 1->None
+Pop: 1 | None
+Pop: Empty stack | None
+Peek: Empty stack
+```
+
 ## 🚀️ Referances
 
 1. [Geeksforgeeks](https://www.geeksforgeeks.org/stack-data-structure-introduction-program/)

@@ -1,6 +1,10 @@
+### ©️ [Kamrul Islam Shahin](https://www.linkedin.com/in/mdkamrulshahin/)
+
+## 🚀️ Leetcode Top Interview Questions
+
 <h2><a href="https://leetcode.com/problems/valid-parentheses/">20. Valid Parentheses</a></h2><h3>Easy</h3><hr><i>Tags:</i></br>
 <b>string | stack</b>
-</br></br>
+</br>
 <i>Companies:</i></br>
 <b>airbnb | amazon | bloomberg | facebook | google | microsoft | twitter | zenefits</b><hr>
 <div><p>Given a string <code>s</code> containing just the characters <code>'('</code>, <code>')'</code>, <code>'{'</code>, <code>'}'</code>, <code>'['</code> and <code>']'</code>, determine if the input string is valid.</p>
@@ -42,49 +46,25 @@
 
 ---
 
-## Explanation:
+## Algorithm:
 
-```
-First We will take an empty stack.
-If '(' or '{' or '[' is encountered, then we will push that into the stack.
-If ')' is encountered and last appended element in p is '(', then I will pop the last appended '('
-Suppose, Stack = [ '[', '{', '(' ] and I got ')', then [ '[', '{', '(', ')' ]. The last 2 element will cancel out because of valid parenthases
-In the same way,
-If '}' is encountered and last appended element in p is '{', then I will pop the last appended '{'
-If ']' is encountered and last appended element in p is '[', then I will pop the last appended '['.
+- First We will take an empty stack.
+- If '(' or '{' or '[' is encountered, then we will push that into the stack.
+- If ')' is encountered and last appended element in p is '(', then I will pop the last appended '('
+  Suppose, Stack = [ '[', '{', '(' ] and I got ')', then [ '[', '{', '(', ')' ]. The last 2 element will cancel out because of valid parenthases
+- In the same way,
+  If '}' is encountered and last appended element in p is '{', then I will pop the last appended '{'
+- If ']' is encountered and last appended element in p is '[', then I will pop the last appended '['.
+- In other condition we will return False
+  Because, Suppose Stack = [ '[', '{', '(' ] and we got '}'.Now, Stack = [ '[', '{', '(', '}']. So, this is invalid.
+- At the end there is no element in the stack, then that is a valid staring. So, return True
+- Else, Return False
 
-In other condition we will return False
-Because, Suppose Stack = [ '[', '{', '(' ] and we got '}'.Now, Stack = [ '[', '{', '(', '}']. So, this is invalid.
+#### **Time complexity: O(n)**
 
-At the end there is no element in the stack, then that is a valid staring. So, return True
-Else, Return False
-```
-
-## Solutions:
+## Solutions: Using stack, dictionary / list / set
 
 ### Approach #1:
-
-```py
-class Solution:
-    def isValid(self, s: str) -> bool:
-
-        ParMap = {'}': '{', ']': '[', ')':'('}
-
-        stack = []
-
-        for p in s:
-            if p in '([{':
-                stack.append(p)
-            else:
-                if stack and ParMap[p] == stack[-1]:
-                    stack.pop()
-                else:
-                    return False
-
-        return True if not stack else False
-```
-
-### Approach #2:
 
 ```py
 class Solution:
@@ -109,6 +89,34 @@ class Solution:
         return True if not stack else False
 ```
 
+### Approach #2:
+
+```py
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        for bracket in s:
+            if bracket in ["(", "{", "["]:
+                stack.append(bracket)
+            else:
+                if not stack:
+                    return False
+                curBracket = stack.pop()
+                if curBracket == "(":
+                    if bracket != ")":
+                        return False
+                elif curBracket == "{":
+                    if bracket != "}":
+                        return False
+                elif curBracket == "[":
+                    if bracket != "]":
+                        return False
+        if stack:
+            return False
+        else:
+            return True
+```
+
 ### Approach #3:
 
 ```py
@@ -121,8 +129,9 @@ class Solution:
             if char == '(' or char == '[' or char == '{':
                 stack.append(char)
             else:
-                if not stack: return False
-                if stack:
+                if not stack:
+                    return False
+                elif stack:
                     p = stack.pop()
                     a = (p == '(' and char == ')')
                     b = (p == '[' and char == ']')
@@ -201,6 +210,48 @@ class Solution:
 ### Approach #7:
 
 ```py
+class Solution:
+    def isValid(self, s):
+        stack = ['#']
+        for c in s:
+            if c == '(':
+                stack.append(')')
+            elif c == '{':
+                stack.append('}')
+            elif c == '[':
+                stack.append(']')
+            elif c != stack.pop():
+                return False
+        return stack == ['#']
+```
+
+### Approach #8:
+
+```py
+class Solution(object):
+    def isValid(self, s):
+
+        if len(s)%2!=0:
+            return False
+        opening = set('([{')
+        matches = set([('(', ')'), ('[', ']'), ('{', '}')])
+        stack = []
+
+        for paren in s:
+            if paren in opening:
+                stack.append(paren)
+            else:
+                if len(stack) == 0:
+                    return False
+                last_open = stack.pop()
+                if (last_open, paren) not in  matches:
+                    return False
+        return len(stack)==0
+```
+
+### Approach #9:
+
+```py
 def isValid(self, s: str) -> bool:
 	while "()" in s or "[]" in s or "{}" in s:
 		s = s.replace("()", "")
@@ -209,30 +260,26 @@ def isValid(self, s: str) -> bool:
 	return s == ""
 ```
 
-### Approach #8:
+### Approach #10:
 
 ```py
 class Solution:
     def isValid(self, s: str) -> bool:
-        stack = []
-        for bracket in s:
-            if bracket in ["(", "{", "["]:
-                stack.append(bracket)
+        d = {"}":"{", ")":"(", "]":"["}
+        i = 0
+        while i < len(s):
+            if s[i] not in d:
+                i += 1
             else:
-                if not stack:
+                if i == 0:
                     return False
-                curBracket = stack.pop()
-                if curBracket == "(":
-                    if bracket != ")":
+                else:
+                    if s[i-1] == d[s[i]]:
+                        s = s[:i-1]+s[i+1:]
+                        i -=1
+                    else:
                         return False
-                if curBracket == "{":
-                    if bracket != "}":
-                        return False
-                if curBracket == "[":
-                    if bracket != "]":
-                        return False
-        if stack:
+        if len(s) > 0:
             return False
-        else:
-            return True
+        return True
 ```
